@@ -1,2 +1,2 @@
-FROM pangeo/base-image:2022.12.18
-# We recommend using a specific tag above from https://github.com/pangeo-data/pangeo-docker-images/releases
+FROM pangeo/base-image:2022.12.01
+# We recommend using a specific tag above from https://hub.docker.com/r/pangeo/base-image/tags
