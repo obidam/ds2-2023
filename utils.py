@@ -1,19 +1,22 @@
-# Python environment check-up, don't modify these lines
 """
-import httpimport
-with httpimport.github_repo('operatorequals', 'covertutils', branch = 'master'):
-    import covertutils
+Way of using this:
 
-import urllib.request
-a = urllib.request.urlopen("https://raw.githubusercontent.com/obidam/ds2-2023/main/utils.py")
-eval(a.read())
+    import os, sys, urllib, tempfile
+    with tempfile.TemporaryDirectory() as tmpdirname:
+        urllib.request.urlretrieve("https://raw.githubusercontent.com/obidam/ds2-2023/main/utils.py",
+                                   os.path.join(tmpdirname, "utils.py"))
+        sys.path.append(tmpdirname)
+        from utils import check_up_env
+        check_up_env()
 """
+
+import os
+import warnings
+from IPython import get_ipython
+from subprocess import Popen, PIPE
+import sys
+
 def check_up_env():
-    import os
-    import warnings
-    from IPython import get_ipython
-    from subprocess import Popen, PIPE
-    import sys
 
     def execute_this(cmd, prt=True):
         process = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE, close_fds=True)
@@ -38,7 +41,10 @@ def check_up_env():
             "Notebooks on your G-Drive")
         execute_this("pip install --upgrade dask distributed xarray zarr gcsfs cftime nc-time-axis intake intake-xarray",
                      prt=False);
+
+    # !curl https://raw.githubusercontent.com/obidam/ds2-2022/main/practice/exploratory_statitics/tuto_tools.py --output tuto_tools.py
+
     elif os.getenv('BINDER_SERVICE_HOST'):
         warnings.warn("\nRunning on a Binder instance\nBe aware that your changes won't be saved")
     else:
-        warnings.warn("\nRunning on your own environment")
+        warnings.warn("\nRunning on your own environment\nMake sure to have all necessary packages installed\nSee: https://github.com/obidam/ds2-2023/blob/main/binder/environment.yml")
