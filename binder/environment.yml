@@ -1,4 +1,4 @@
-name: myenv
+name: ds2
 channels:
   - conda-forge
 dependencies:
