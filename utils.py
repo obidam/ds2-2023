@@ -3,18 +3,18 @@
 import httpimport
 with httpimport.github_repo('operatorequals', 'covertutils', branch = 'master'):
     import covertutils
-        
+
 import urllib.request
-a = urllib.request.urlopen(url)
+a = urllib.request.urlopen("https://raw.githubusercontent.com/obidam/ds2-2023/main/utils.py")
 eval(a.read())
 """
-import os
-import warnings
-from IPython import get_ipython
-from subprocess import Popen, PIPE
-import sys
-
 def check_up_env():
+    import os
+    import warnings
+    from IPython import get_ipython
+    from subprocess import Popen, PIPE
+    import sys
+
     def execute_this(cmd, prt=True):
         process = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE, close_fds=True)
         try:
