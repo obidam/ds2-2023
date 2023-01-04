@@ -46,12 +46,10 @@ def check_up_env(with_tuto=False):
         if with_tuto:
             # Install cartopy for Google Colab:
             # (https://github.com/googlecolab/colabtools/issues/85#issuecomment-709241391)
-            execute_this(
-                "pip install -q condacolab",
-                prt=True)
+            execute_this("pip install -q condacolab", prt=True)
             import condacolab
             condacolab.install()
-            execute_this("!mamba install -q -c conda-forge cartopy seaborn gsw scikit-learn", prt=True)
+            execute_this("mamba install -q -c conda-forge cartopy seaborn gsw scikit-learn", prt=True)
             # execute_this("pip install --upgrade seaborn gsw scikit-learn", prt=False)
 
             # !pip install -q condacolab
