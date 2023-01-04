@@ -215,10 +215,10 @@ def sns_plot2d_GMM_marginals(df, gmm):
 
     # cmap = sns.light_palette("gray",reverse=False,as_cmap=True)
     cmap = sns.light_palette("gray", as_cmap=True)
-    g.plot_joint(sns.kdeplot, kernel='gau', shade=True,
+    g.plot_joint(sns.kdeplot, shade=True,
                  thresh=0.05,
-                 cmap=cmap, kind='hex', n_levels=30)
-    g.plot_joint(sns.kdeplot, kernel='gau', shade=False, n_levels=10, linewidth=0.5)
+                 cmap=cmap, n_levels=30)
+    g.plot_joint(sns.kdeplot, shade=False, n_levels=10, linewidths=0.5)
 
     g.plot_marginals(sns.histplot, stat='density', kde=False, color=".75")
 
