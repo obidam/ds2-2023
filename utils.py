@@ -37,7 +37,7 @@ def check_up_env(with_tuto=False):
     if 'google.colab' in str(get_ipython()):
         # If we run this notebook at colab.research.google.com, we need to install more packages:
         warnings.warn(
-            "\nRunning on Google Colab\nBe aware that your changes won't be saved unless you save this "
+            "\nRunning on Google Colab, set-up can take a few minutes\nBe aware that your changes won't be saved unless you save this "
             "Notebooks on your G-Drive")
         execute_this("pip install --upgrade dask distributed xarray zarr gcsfs cftime nc-time-axis intake intake-xarray",
                      prt=False)
@@ -48,10 +48,10 @@ def check_up_env(with_tuto=False):
             # (https://github.com/googlecolab/colabtools/issues/85#issuecomment-709241391)
             execute_this(
                 "pip install -q condacolab",
-                prt=False)
+                prt=True)
             import condacolab
             condacolab.install()
-            execute_this("!mamba install -q -c conda-forge cartopy seaborn gsw scikit-learn", prt=False)
+            execute_this("!mamba install -q -c conda-forge cartopy seaborn gsw scikit-learn", prt=True)
             # execute_this("pip install --upgrade seaborn gsw scikit-learn", prt=False)
 
             # !pip install -q condacolab
