@@ -83,6 +83,7 @@ def create_map(extent=[-180, 180, -70, 70], dpi=200, figsize=(12,4)):
     ax.add_feature(cfeature.COASTLINE)
     return fig, proj, ax
 
+
 def plot2d_labels(X, labels, cluster_centers=np.empty(()), dpi=80, kmarkersize=10):
     """Create figure with a scatter plot of X colored by 'labels'"""
 #     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=plt.figaspect(0.6), dpi=90, facecolor='w', edgecolor='k')
@@ -153,6 +154,7 @@ def plot_GMMellipse(gmm, id, ik, col, ax, **kwargs):
             plt.plot(linex, liney, color=col, axes=ax, **plot_kw)
     return p, ax
 
+
 def sns_GMMellipse(x, y, gmm=[], id=[], std=[1], main_axes=True, label="?", colors=None, **kwargs):
     """
         Same as plot_GMMellipse but works in Seaborn join plots
@@ -187,6 +189,7 @@ def sns_GMMellipse(x, y, gmm=[], id=[], std=[1], main_axes=True, label="?", colo
                 linex = [start[0], endpt[0]]
                 liney = [start[1], endpt[1]]
                 plt.plot(linex,liney,color=col)
+
 
 def sns_plot2d_GMM_marginals(df, gmm):
     """Plot a 2D dataset pdf with marginal pdfs and GMM modes
@@ -246,3 +249,10 @@ def sns_plot2d_GMM_marginals(df, gmm):
     g.ax_marg_x.legend(prop={'weight': 'bold', 'size': 12}, loc='upper left')
 
     return g
+
+
+def plot_normal(mean, std, color="black"):
+    from scipy import stats
+    x = np.linspace(mean - 4 * std, mean + 4 * std, 200)
+    p = stats.norm.pdf(x, mean, std)
+    z = plt.plot(x, p, color=color, linewidth=2)
