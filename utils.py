@@ -17,7 +17,7 @@ from IPython import get_ipython
 from subprocess import Popen, PIPE
 import urllib
 
-def check_up_env(tuto=False):
+def check_up_env(with_tuto=False):
 
     def execute_this(cmd, prt=True):
         process = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE, close_fds=True)
@@ -40,14 +40,20 @@ def check_up_env(tuto=False):
             "\nRunning on Google Colab\nBe aware that your changes won't be saved unless you save this "
             "Notebooks on your G-Drive")
         execute_this("pip install --upgrade dask distributed xarray zarr gcsfs cftime nc-time-axis intake intake-xarray",
-                     prt=False);
+                     prt=False)
 
         # We also need to load more tools:
-        if tuto:
+        if with_tuto:
+            # Install cartopy for Google Colab:
+            # (https://github.com/googlecolab/colabtools/issues/85#issuecomment-709241391)
+            execute_this(
+                "pip install --upgrade seaborn gsw scikit-learn",
+                prt=False);
+
             repo = "https://raw.githubusercontent.com/obidam/ds2-2023/main/"
             urllib.request.urlretrieve(os.path.join(repo, "practice/exploratory_statistics/tuto_tools.py"),
                                        os.path.join(".", "tuto_tools.py"))
-    
+
     elif os.getenv('BINDER_SERVICE_HOST'):
         warnings.warn("\nRunning on a Binder instance\nBe aware that your changes won't be saved")
     else:

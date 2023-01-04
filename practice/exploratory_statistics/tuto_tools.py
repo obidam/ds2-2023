@@ -12,10 +12,7 @@ from sklearn.datasets import make_blobs
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 from matplotlib.colors import ListedColormap
-
-import cartopy.crs as ccrs
 import matplotlib.ticker as mticker
-import cartopy.feature as cfeature
 
 import seaborn as sns
 sns.set(context="notebook", style="whitegrid", palette="deep", color_codes=True)
@@ -67,6 +64,9 @@ def create_map(extent=[-180, 180, -70, 70], dpi=200, figsize=(12,4)):
     """Create a figure with a map
         Return fig, proj, ax
     """
+    import cartopy.crs as ccrs
+    import cartopy.feature as cfeature
+
     fig = plt.figure(figsize=figsize, dpi=dpi)
     proj = ccrs.PlateCarree()
     ax = fig.add_axes([0,0,1,1],projection=proj)
