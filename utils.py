@@ -42,13 +42,21 @@ def check_up_env(with_tuto=False):
         execute_this("pip install --upgrade dask distributed xarray zarr gcsfs cftime nc-time-axis intake intake-xarray",
                      prt=False)
 
-        # We also need to load more tools:
+        # We also need to load more tools for some tutorials:
         if with_tuto:
             # Install cartopy for Google Colab:
             # (https://github.com/googlecolab/colabtools/issues/85#issuecomment-709241391)
             execute_this(
-                "pip install --upgrade seaborn gsw scikit-learn",
-                prt=False);
+                "pip install -q condacolab",
+                prt=False)
+            import condacolab
+            condacolab.install()
+            execute_this("!mamba install -q -c conda-forge cartopy seaborn gsw scikit-learn", prt=False)
+            # execute_this("pip install --upgrade seaborn gsw scikit-learn", prt=False)
+
+            # !pip install -q condacolab
+            # import condacolab
+            # condacolab.install()
 
             repo = "https://raw.githubusercontent.com/obidam/ds2-2023/main/"
             urllib.request.urlretrieve(os.path.join(repo, "practice/exploratory_statistics/tuto_tools.py"),
