@@ -17,5 +17,4 @@ dependencies:
   - dask-ml
   - pip
   - pip:
-    - sat-search
     - httpimport
