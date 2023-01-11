@@ -75,6 +75,6 @@ This dataset can be accessed this way:
 	mapper = gcs.get_mapper(zstore)
 	ds = xr.(mapper, consolidated=True)
 
-Notebook with info on the CMIP experiments and example code: [![Colab](https://img.shields.io/static/v1?label=Google&message=Open+data+with+Colab&color=blue&style=plastic&logo=google-colab)]([https://github.com/obidam/ds2-2023/blob/main/project](https://colab.research.google.com/github/obidam/ds2-2023/blob/main/project/Starting_point_for_projects_7_and_8_(SC).ipynb)
+Notebook with info on the CMIP experiments and example code: [![Colab](https://img.shields.io/static/v1?label=Google&message=Open+data+with+Colab&color=blue&style=plastic&logo=google-colab)](https://colab.research.google.com/github/obidam/ds2-2023/blob/main/project/Starting_point_for_projects_7_and_8_(SC).ipynb)
 ***
 <img src="https://github.com/obidam/ds2-2023/raw/main/logo_isblue.jpg">
