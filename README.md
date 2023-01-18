@@ -3,7 +3,6 @@
 Home of the 2023 ISblue Big Data & Cloud Computing for Oceanography class (IMT-A, ENSTA, IUEM) given by:
 
 - Pierre Tandeo - pierre.tandeo @ imt-atlantique.fr
-- Frédéric Paul - frederic.paul @ ifremer.fr
 - Sally Close - sally.close @ univ-brest.fr
 - Guillaume Maze - Guillaume.Maze @ ifremer.fr
 - Carlos Granero Belinchon - carlos.granero-belinchon @ imt-atlantique.fr
