@@ -60,7 +60,7 @@ This dataset can be accessed this way:
 
 You should also need GSW: https://teos-10.github.io/GSW-Python/
 
-## Project 7: Future Arctic sea ice change (Arctic)
+## Projects 7 and 8: Future Arctic sea ice change (Arctic) / the Atlantic Multidecadal Oscillation
 
 *Description*: The Coupled Model Intercomparison Project is a framework within which a number of research centres produce predictions of the future evolution of the climate. Many climate centres use an ensemble approach, in which they produce several simulations for each scenario, using the same model configuration. By comparing these multiple simulations (“the ensemble"), we can estimate the probability that the climate will evolve in a certain way.
 
@@ -75,6 +75,6 @@ This dataset can be accessed this way:
 	mapper = gcs.get_mapper(zstore)
 	ds = xr.(mapper, consolidated=True)
 
-
+Notebook with info on the CMIP experiments and example code: [![Colab](https://img.shields.io/static/v1?label=Google&message=Open+data+with+Colab&color=blue&style=plastic&logo=google-colab)](https://colab.research.google.com/github/obidam/ds2-2023/blob/main/project/Starting_point_for_projects_7_and_8_(SC).ipynb)
 ***
 <img src="https://github.com/obidam/ds2-2023/raw/main/logo_isblue.jpg">
